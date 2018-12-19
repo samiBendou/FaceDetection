@@ -1,8 +1,8 @@
-# Install script for directory: /Users/lemale/CLionProjects/FaceDetectionGithub/NAlgebra
+# Install script for directory: D:/Users/Bendou/CLionProjects/FaceDetection/NAlgebra
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/usr/local")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/FaceDetection")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 

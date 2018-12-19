@@ -1,8 +1,10 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/FaceDetection.dir/main.cpp.o"
-  "CMakeFiles/FaceDetection.dir/ImageMatrix.cpp.o"
+  "CMakeFiles/FaceDetection.dir/main.cpp.obj"
+  "CMakeFiles/FaceDetection.dir/ImageMatrix.cpp.obj"
   "FaceDetection.pdb"
-  "FaceDetection"
+  "FaceDetection.exe"
+  "FaceDetection.exe.manifest"
+  "libFaceDetection.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.

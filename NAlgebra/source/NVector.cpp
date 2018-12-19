@@ -554,6 +554,9 @@ class NVector<i_t>;
 template
 class NVector<AESByte>;
 
+template
+class NVector<Pixel>;
+
 
 
 

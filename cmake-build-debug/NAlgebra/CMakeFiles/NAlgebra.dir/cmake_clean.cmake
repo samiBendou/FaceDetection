@@ -1,8 +1,9 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/NAlgebra.dir/source/NVector.cpp.o"
-  "CMakeFiles/NAlgebra.dir/source/Vector3.cpp.o"
-  "CMakeFiles/NAlgebra.dir/source/NPMatrix.cpp.o"
-  "CMakeFiles/NAlgebra.dir/source/AESByte.cpp.o"
+  "CMakeFiles/NAlgebra.dir/source/NVector.cpp.obj"
+  "CMakeFiles/NAlgebra.dir/source/Vector3.cpp.obj"
+  "CMakeFiles/NAlgebra.dir/source/NPMatrix.cpp.obj"
+  "CMakeFiles/NAlgebra.dir/source/AESByte.cpp.obj"
+  "CMakeFiles/NAlgebra.dir/source/Pixel.cpp.obj"
   "libNAlgebra.pdb"
   "libNAlgebra.a"
 )

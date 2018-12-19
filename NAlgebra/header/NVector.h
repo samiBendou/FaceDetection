@@ -422,5 +422,6 @@ protected:
 typedef NVector<double> vec_t;
 typedef NVector<char> vec_char_t;
 typedef NVector<AESByte> vec_aes_t;
+typedef NVector<Pixel> vec_pix_t;
 
 #endif //MATHTOOLKIT_VECTOR_H

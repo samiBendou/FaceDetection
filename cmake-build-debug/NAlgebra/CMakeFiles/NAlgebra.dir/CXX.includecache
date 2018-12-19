@@ -13,6 +13,8 @@ iostream
 -
 stdlib.h
 -
+typedef.h
+-
 
 ../NAlgebra/header/NPMatrix.h
 thirdparty.h
@@ -23,6 +25,16 @@ NVector.h
 ../NAlgebra/header/NVector.h
 thirdparty.h
 ../NAlgebra/header/thirdparty.h
+
+../NAlgebra/header/Pixel.h
+cmath
+-
+iostream
+-
+stdlib.h
+-
+typedef.h
+-
 
 ../NAlgebra/header/Vector3.h
 NVector.h
@@ -51,22 +63,26 @@ functional
 -
 AESByte.h
 -
-
-/Users/lemale/CLionProjects/FaceDetectionGithub/NAlgebra/source/AESByte.cpp
-AESByte.h
+Pixel.h
 -
-AESByte.h
-/Users/lemale/CLionProjects/FaceDetectionGithub/NAlgebra/source/AESByte.h
+typedef.h
+-
 
-/Users/lemale/CLionProjects/FaceDetectionGithub/NAlgebra/source/NPMatrix.cpp
+../NAlgebra/header/typedef.h
+
+D:/Users/Bendou/CLionProjects/FaceDetection/NAlgebra/source/NPMatrix.cpp
 NPMatrix.h
 -
 
-/Users/lemale/CLionProjects/FaceDetectionGithub/NAlgebra/source/NVector.cpp
+D:/Users/Bendou/CLionProjects/FaceDetection/NAlgebra/source/NVector.cpp
 NVector.h
 -
 
-/Users/lemale/CLionProjects/FaceDetectionGithub/NAlgebra/source/Vector3.cpp
+D:/Users/Bendou/CLionProjects/FaceDetection/NAlgebra/source/Pixel.cpp
+Pixel.h
+-
+
+D:/Users/Bendou/CLionProjects/FaceDetection/NAlgebra/source/Vector3.cpp
 Vector3.h
 -
 

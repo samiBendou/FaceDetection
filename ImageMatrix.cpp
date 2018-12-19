@@ -8,17 +8,17 @@
 
 #include "stb/stb_image.h"
 
-ImageMatrix::ImageMatrix(ul_t width, ul_t length, Format format) : NPMatrix(width, length), _format(format),
-                                                                   _intgr(nullptr) {
-
-}
-
-ImageMatrix::ImageMatrix(const NPMatrix &m, ImageMatrix::Format format) : NPMatrix(m), _format(format),
+ImageMatrix::ImageMatrix(ul_t width, ul_t length, Pixel::Format format) : NPMatrix(width, length), _format(format),
                                                                           _intgr(nullptr) {
 
 }
 
-ImageMatrix::ImageMatrix(const std::string &path, ImageMatrix::Format format)
+ImageMatrix::ImageMatrix(const NPMatrix &m, Pixel::Format format) : NPMatrix(m), _format(format),
+                                                                    _intgr(nullptr) {
+
+}
+
+ImageMatrix::ImageMatrix(const std::string &path, Pixel::Format format)
         : NPMatrix(), _format(format), _intgr(nullptr) {
     read(path, format);
 }
@@ -27,7 +27,7 @@ ImageMatrix::~ImageMatrix() {
     delete _intgr;
 }
 
-void ImageMatrix::read(const std::string &path, ImageMatrix::Format format) {
+void ImageMatrix::read(const std::string &path, Pixel::Format format) {
     int x, y, n;
     stbi_uc *result = stbi_load(path.c_str(), &x, &y, &n, format);
 
@@ -40,7 +40,7 @@ void ImageMatrix::read(const std::string &path, ImageMatrix::Format format) {
     *this = mat_img_t(vec_result, (ul_t) x, (ul_t) y * _format);
 }
 
-void ImageMatrix::write(const std::string &path, ImageMatrix::Format format) {
+void ImageMatrix::write(const std::string &path, Pixel::Format format) {
     // TODO : Implement writing to .png or .jpeg format via STBJ
 }
 

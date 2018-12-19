@@ -1,6 +1,19 @@
-//
-// Created by Sami Dahoux on 26/10/2018.
-//
+/**
+ * @class          : ImageMatrix
+ * @date           : 26/10/2018
+ * @author         : samiBendou
+ * @description    : An ImageMatrix inherits from NPMatrix. It's an instanciation of NPMatrix with type Pixel.
+ *                   ImageMatrix objects represents an image of type .jpeg or .png with a given color scale
+ *                   (cf. Pixel class). All allong the folowing code we will use theses notations :
+ *                      - x/y : Row/Col. indice for an image
+ *                      - index : Compound index
+ *                   The ImageMatrix class provide method for image processing and is especially
+ *                   designed to achieve calculation of Pseudo-Haar characteristics using image integral representation.
+ *
+ *                   The class uses package NAlgebra and STB image.
+ *
+ * @license        : Dahoux Sami 2018 - © Copyright All Rights Reserved.
+ */
 
 #ifndef FACEDETECTION_IMAGEMATRIX_H
 #define FACEDETECTION_IMAGEMATRIX_H
@@ -19,21 +32,18 @@ public:
 
     using mat_img_t::operator=;
 
-    enum Format {
-        GScale = 1, RGB = 3, Default = 1
-    };
 
-    ImageMatrix(ul_t width = 0, ul_t length = 0, Format format = Default);
+    ImageMatrix(ul_t width = 0, ul_t length = 0, Pixel::Format format = Pixel::GScale);
 
-    ImageMatrix(const NPMatrix &m, Format format = Default);
+    ImageMatrix(const NPMatrix &m, Pixel::Format format = Pixel::GScale);
 
     ~ImageMatrix();
 
-    explicit ImageMatrix(const std::string &path, Format format = GScale);
+    explicit ImageMatrix(const std::string &path, Pixel::Format format = Pixel::GScale);
 
-    void read(const std::string &path, Format format = Default);
+    void read(const std::string &path, Pixel::Format format = Pixel::GScale);
 
-    void write(const std::string &path, Format format = Default);
+    void write(const std::string &path, Pixel::Format format = Pixel::GScale);
 
     mat_img_t intgr() const;
 
@@ -42,7 +52,7 @@ public:
 
 private:
 
-    Format _format = Default;
+    Pixel::Format _format = Pixel::GScale;
 
     mutable mat_img_t *_intgr = nullptr;
 };

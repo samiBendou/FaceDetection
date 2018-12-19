@@ -16,10 +16,7 @@
 #include <complex>
 #include <functional>
 #include <AESByte.h>
-
-typedef unsigned long long ul_t;
-typedef unsigned int ui_t;
-typedef int i_t;
-
+#include <Pixel.h>
+#include <typedef.h>
 
 #endif //FACEDETECTION_THIRDPARTY_H

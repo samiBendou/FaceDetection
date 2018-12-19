@@ -1,2 +1,2 @@
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc libNAlgebra.a  CMakeFiles/NAlgebra.dir/source/NVector.cpp.o CMakeFiles/NAlgebra.dir/source/Vector3.cpp.o CMakeFiles/NAlgebra.dir/source/NPMatrix.cpp.o CMakeFiles/NAlgebra.dir/source/AESByte.cpp.o
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib libNAlgebra.a
+D:\PROGRA~1\MINGW-~1\I686-8~1.0-P\mingw32\bin\ar.exe qc libNAlgebra.a  CMakeFiles/NAlgebra.dir/source/NVector.cpp.obj CMakeFiles/NAlgebra.dir/source/Vector3.cpp.obj CMakeFiles/NAlgebra.dir/source/NPMatrix.cpp.obj CMakeFiles/NAlgebra.dir/source/AESByte.cpp.obj CMakeFiles/NAlgebra.dir/source/Pixel.cpp.obj
+D:\PROGRA~1\MINGW-~1\I686-8~1.0-P\mingw32\bin\ranlib.exe libNAlgebra.a

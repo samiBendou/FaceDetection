@@ -8,10 +8,7 @@
 #include <cmath>
 #include <iostream>
 #include <stdlib.h>
-
-typedef unsigned char uc_t;
-
-typedef unsigned int ui_t;
+#include <typedef.h>
 
 class AESByte {
 

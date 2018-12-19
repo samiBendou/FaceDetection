@@ -1124,6 +1124,8 @@ class NPMatrix<i_t>;
 template
 class NPMatrix<AESByte>;
 
+template
+class NPMatrix<Pixel>;
 
 
 

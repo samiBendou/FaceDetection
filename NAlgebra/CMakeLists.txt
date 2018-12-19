@@ -8,4 +8,4 @@ add_library(NAlgebra STATIC
         source/Vector3.cpp header/Vector3.h
         source/NPMatrix.cpp header/NPMatrix.h
         source/AESByte.cpp header/AESByte.h
-        )
+        source/Pixel.cpp header/Pixel.h header/typedef.h)

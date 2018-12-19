@@ -13,6 +13,8 @@ iostream
 -
 stdlib.h
 -
+typedef.h
+-
 
 ../NAlgebra/header/NPMatrix.h
 thirdparty.h
@@ -23,6 +25,16 @@ NVector.h
 ../NAlgebra/header/NVector.h
 thirdparty.h
 ../NAlgebra/header/thirdparty.h
+
+../NAlgebra/header/Pixel.h
+cmath
+-
+iostream
+-
+stdlib.h
+-
+typedef.h
+-
 
 ../NAlgebra/header/thirdparty.h
 iostream
@@ -47,28 +59,34 @@ functional
 -
 AESByte.h
 -
+Pixel.h
+-
+typedef.h
+-
 
-/Users/lemale/CLionProjects/FaceDetectionGithub/ImageMatrix.cpp
+../NAlgebra/header/typedef.h
+
+D:/Users/Bendou/CLionProjects/FaceDetection/ImageMatrix.cpp
 ImageMatrix.h
-/Users/lemale/CLionProjects/FaceDetectionGithub/ImageMatrix.h
+D:/Users/Bendou/CLionProjects/FaceDetection/ImageMatrix.h
 stb/stb_image.h
-/Users/lemale/CLionProjects/FaceDetectionGithub/stb/stb_image.h
+D:/Users/Bendou/CLionProjects/FaceDetection/stb/stb_image.h
 
-/Users/lemale/CLionProjects/FaceDetectionGithub/ImageMatrix.h
+D:/Users/Bendou/CLionProjects/FaceDetection/ImageMatrix.h
 string
 -
 NPMatrix.h
 -
 
-/Users/lemale/CLionProjects/FaceDetectionGithub/main.cpp
+D:/Users/Bendou/CLionProjects/FaceDetection/main.cpp
 iostream
 -
 ImageMatrix.h
-/Users/lemale/CLionProjects/FaceDetectionGithub/ImageMatrix.h
+D:/Users/Bendou/CLionProjects/FaceDetection/ImageMatrix.h
 
-/Users/lemale/CLionProjects/FaceDetectionGithub/stb/stb_image.h
+D:/Users/Bendou/CLionProjects/FaceDetection/stb/stb_image.h
 stb_image.h
-/Users/lemale/CLionProjects/FaceDetectionGithub/stb/stb_image.h
+D:/Users/Bendou/CLionProjects/FaceDetection/stb/stb_image.h
 stdio.h
 -
 stdarg.h
