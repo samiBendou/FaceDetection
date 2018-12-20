@@ -66,27 +66,27 @@ typedef.h
 
 ../NAlgebra/header/typedef.h
 
-D:/Users/Bendou/CLionProjects/FaceDetection/ImageMatrix.cpp
+/Users/lemale/CLionProjects/FaceDetectionGithub/ImageMatrix.cpp
 ImageMatrix.h
-D:/Users/Bendou/CLionProjects/FaceDetection/ImageMatrix.h
+/Users/lemale/CLionProjects/FaceDetectionGithub/ImageMatrix.h
 stb/stb_image.h
-D:/Users/Bendou/CLionProjects/FaceDetection/stb/stb_image.h
+/Users/lemale/CLionProjects/FaceDetectionGithub/stb/stb_image.h
 
-D:/Users/Bendou/CLionProjects/FaceDetection/ImageMatrix.h
+/Users/lemale/CLionProjects/FaceDetectionGithub/ImageMatrix.h
 string
 -
 NPMatrix.h
 -
 
-D:/Users/Bendou/CLionProjects/FaceDetection/main.cpp
+/Users/lemale/CLionProjects/FaceDetectionGithub/main.cpp
 iostream
 -
 ImageMatrix.h
-D:/Users/Bendou/CLionProjects/FaceDetection/ImageMatrix.h
+/Users/lemale/CLionProjects/FaceDetectionGithub/ImageMatrix.h
 
-D:/Users/Bendou/CLionProjects/FaceDetection/stb/stb_image.h
+/Users/lemale/CLionProjects/FaceDetectionGithub/stb/stb_image.h
 stb_image.h
-D:/Users/Bendou/CLionProjects/FaceDetection/stb/stb_image.h
+/Users/lemale/CLionProjects/FaceDetectionGithub/stb/stb_image.h
 stdio.h
 -
 stdarg.h
