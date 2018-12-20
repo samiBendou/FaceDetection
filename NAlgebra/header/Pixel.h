@@ -3,13 +3,25 @@
  * @date           : 19/12/2018
  * @author         : samiBendou
  * @description    : Pixel class is a representation of a pixel providing uses of multiple color scale
- *                   and conversion between theses.
+ *                   and conversion between theses. The class provides an interface with char primitive
+ *                   type by converting a char value onto a grey scale pixel and vice versa if needed.
+ *
+ *                   A pixel can be in several states usefull for representing pixel on image processing
+ *                   calculation :
+ *                      - format    : either Red, Green, Blue (RGB) or Grey Scale (GScale).
+ *                      - limited   : the value of each component can be limited to be between 0 and 255.
+ *                                    If the value of a component is set negative the result is 0. Else,
+ *                                    the if the value is greater than MAX_LIMIT_CMP than the set value
+ *                                    is the original value mod MAX_LIMIT_CMP + 1.
+*                    The pixel is stored in memory as a RGB value even if the format is not RGB. Getting and
+ *                   setting components generally implies a calculation to translate between RGB and other
+ *                   formats.
  *
  * @license        : Dahoux Sami 2018 - © Copyright All Rights Reserved.
  */
 
-#ifndef FACEDETECTION_PIXEL_H
-#define FACEDETECTION_PIXEL_H
+#ifndef MATHTOOLKIT_PIXEL_H
+#define MATHTOOLKIT_PIXEL_H
 
 #include <cmath>
 #include <iostream>
@@ -17,7 +29,6 @@
 #include <typedef.h>
 
 #define MAX_LIMIT_CMP 255
-
 
 class Pixel {
 
@@ -33,11 +44,9 @@ public:
 
     // CONSTRUCTOR
 
-    explicit Pixel(Format format = RGB, bool limited = false);
+    explicit Pixel(Format format = GScale, bool limited = false);
 
-    Pixel(int grey);
-
-    explicit Pixel(int grey, bool limited);
+    Pixel(int grey, bool limited = false);
 
     Pixel(int red, int green, int blue, bool limited = false);
 
@@ -77,29 +86,13 @@ public:
 
     friend Pixel operator+(const Pixel &p1, const Pixel &p2);
 
-    friend Pixel operator+(const Pixel &p, int val);
-
-    friend Pixel operator+(int val, const Pixel &p);
-
     friend Pixel operator-(const Pixel &p1, const Pixel &p2);
-
-    friend Pixel operator-(const Pixel &p, int val);
-
-    friend Pixel operator-(int val, const Pixel &p);
 
     Pixel operator-() const;
 
     friend Pixel operator*(const Pixel &p1, const Pixel &p2);
 
-    friend Pixel operator*(const Pixel &p, int val);
-
-    friend Pixel operator*(int val, const Pixel &p);
-
     friend Pixel operator/(const Pixel &p1, const Pixel &p2);
-
-    friend Pixel operator/(const Pixel &p, int val);
-
-    friend Pixel operator/(int val, const Pixel &p);
 
     Pixel &operator+=(const Pixel &p);
 
@@ -156,4 +149,4 @@ private:
 };
 
 
-#endif //FACEDETECTION_PIXEL_H
+#endif //MATHTOOLKIT_PIXEL_H

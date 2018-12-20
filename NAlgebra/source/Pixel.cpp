@@ -10,11 +10,6 @@ Pixel::Pixel(Pixel::Format format, bool limited) : _red(0), _green(0), _blue(0),
 }
 
 
-Pixel::Pixel(int grey) : Pixel(grey, false) {
-
-}
-
-
 Pixel::Pixel(int grey, bool limited) : _red(grey), _green(grey), _blue(grey),
                                        _format(GScale), _limited(limited) {
 
@@ -89,26 +84,11 @@ Pixel operator+(const Pixel &p1, const Pixel &p2) {
     return res;
 }
 
-Pixel operator+(const Pixel &p, int val) {
-    return p + Pixel(val);
-}
-
-Pixel operator+(int val, const Pixel &p) {
-    return p + val;
-}
 
 Pixel operator-(const Pixel &p1, const Pixel &p2) {
     Pixel res{p1};
     res -= p2;
     return res;
-}
-
-Pixel operator-(const Pixel &p, int val) {
-    return p - Pixel(val);
-}
-
-Pixel operator-(int val, const Pixel &p) {
-    return Pixel(val) - p;
 }
 
 Pixel Pixel::operator-() const {
@@ -123,26 +103,10 @@ Pixel operator*(const Pixel &p1, const Pixel &p2) {
     return res;
 }
 
-Pixel operator*(const Pixel &p, int val) {
-    return p * Pixel(val);
-}
-
-Pixel operator*(int val, const Pixel &p) {
-    return p * val;
-}
-
 Pixel operator/(const Pixel &p1, const Pixel &p2) {
     Pixel res{p1};
     res.div(p2);
     return res;
-}
-
-Pixel operator/(const Pixel &p, int val) {
-    return p / Pixel(val);
-}
-
-Pixel operator/(int val, const Pixel &p) {
-    return Pixel(val) / p;
 }
 
 Pixel &Pixel::operator+=(const Pixel &p) {

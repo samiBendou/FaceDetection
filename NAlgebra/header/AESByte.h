@@ -1,9 +1,17 @@
-//
-// Created by Sami Dahoux on 15/10/2018.
-//
+/**
+ * @class          : Pixel
+ * @date           : 15/10/2018
+ * @author         : samiBendou
+ * @description    : AESByte class is a representation of a byte used in AES algorithm,
+ *                   providing algebraical operation on the specific Gallois field. and
+ *                   interfacing with char primitive type. For more details go to
+ *                   https://nvlpubs.nist.gov/nistpubs/fips/nist.fips.197.pdf.
+ *
+ * @license        : Dahoux Sami 2018 - © Copyright All Rights Reserved.
+ */
 
-#ifndef AESTEST_AESBYTE_H
-#define AESTEST_AESBYTE_H
+#ifndef MATHTOOLKIT_AESBYTE_H
+#define MATHTOOLKIT_AESBYTE_H
 
 #include <cmath>
 #include <iostream>
@@ -18,13 +26,19 @@ public:
 
     friend AESByte sqrt(const AESByte &b);
 
+    // CONSTRUCTOR
+
     AESByte(char val = 0x00);
 
     AESByte(int val);
 
     AESByte(double val);
 
+    // GETTERS
+
     uc_t val() const;
+
+    // OPERATORS
 
     AESByte operator+(const AESByte &b);
 
@@ -58,6 +72,8 @@ public:
 
 private:
 
+    // ALGEBRAICAL OPERATIONS
+
     void add(const AESByte &b);
 
     void prod(const AESByte &b);
@@ -65,4 +81,4 @@ private:
     uc_t _val;
 };
 
-#endif //AESTEST_AESBYTE_H
+#endif //MATHTOOLKIT_AESBYTE_H
