@@ -66,6 +66,12 @@ typedef.h
 
 ../NAlgebra/header/typedef.h
 
+D:/Users/Bendou/CLionProjects/FaceDetection/ImageMatrix.cpp
+ImageMatrix.h
+D:/Users/Bendou/CLionProjects/FaceDetection/ImageMatrix.h
+stb/stb_image.h
+D:/Users/Bendou/CLionProjects/FaceDetection/stb/stb_image.h
+
 D:/Users/Bendou/CLionProjects/FaceDetection/ImageMatrix.h
 string
 -
@@ -77,4 +83,34 @@ iostream
 -
 ImageMatrix.h
 D:/Users/Bendou/CLionProjects/FaceDetection/ImageMatrix.h
+
+D:/Users/Bendou/CLionProjects/FaceDetection/stb/stb_image.h
+stb_image.h
+D:/Users/Bendou/CLionProjects/FaceDetection/stb/stb_image.h
+stdio.h
+-
+stdarg.h
+-
+stddef.h
+-
+stdlib.h
+-
+string.h
+-
+limits.h
+-
+math.h
+-
+stdio.h
+-
+assert.h
+-
+stdint.h
+-
+emmintrin.h
+-
+intrin.h
+-
+arm_neon.h
+-
 
