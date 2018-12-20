@@ -31,11 +31,13 @@ public:
 
     // CONSTRUCTOR
 
+    ImageMatrix(const ImageMatrix &img);
+
     /**
      *
      * @brief Construct by copy a new image matrix with given matrix m
      */
-    ImageMatrix(const NPMatrix &m, Pixel::Format format = Pixel::GScale, bool limited = false);
+    ImageMatrix(const NPMatrix &m, bool limited = false);
 
     /**
      *
@@ -75,6 +77,12 @@ public:
      */
 
     ImageMatrix intgr() const;
+
+    ImageMatrix &gsToRgb();
+
+    ImageMatrix &rgbToGs();
+
+    ImageMatrix &conformFormatTo(const mat_pix_t &img);
 
 
     /**

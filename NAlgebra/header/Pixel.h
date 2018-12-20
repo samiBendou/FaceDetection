@@ -82,6 +82,8 @@ public:
 
     void limit();
 
+    void conformFormatTo(const Pixel &p);
+
     // OPERATORS
 
     friend Pixel operator+(const Pixel &p1, const Pixel &p2);
@@ -135,8 +137,6 @@ private:
     bool isEqual(int val) const;
 
     int limitIfLimited(int cmp) const;
-
-    void conformFormatTo(const Pixel& p);
 
     void setPrivateRGB(int red, int green, int blue);
 

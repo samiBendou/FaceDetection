@@ -132,7 +132,7 @@ public:
      *                      else to the right.
      * @details : Shifts vector iterations times. ie. with iterations = 2 : (x2, x3, ..., x(n-1), x0, x1).
      */
-    void shift(long iterations);
+    NVector<T> &shift(long iterations);
 
     /**
      *

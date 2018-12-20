@@ -70,12 +70,6 @@ typedef.h
 
 ../NAlgebra/header/typedef.h
 
-/Users/lemale/CLionProjects/FaceDetectionGithub/NAlgebra/source/AESByte.cpp
-AESByte.h
--
-AESByte.h
-/Users/lemale/CLionProjects/FaceDetectionGithub/NAlgebra/source/AESByte.h
-
 /Users/lemale/CLionProjects/FaceDetectionGithub/NAlgebra/source/NPMatrix.cpp
 NPMatrix.h
 -

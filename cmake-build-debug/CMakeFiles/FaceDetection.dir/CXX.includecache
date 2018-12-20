@@ -66,12 +66,6 @@ typedef.h
 
 ../NAlgebra/header/typedef.h
 
-/Users/lemale/CLionProjects/FaceDetectionGithub/ImageMatrix.cpp
-ImageMatrix.h
-/Users/lemale/CLionProjects/FaceDetectionGithub/ImageMatrix.h
-stb/stb_image.h
-/Users/lemale/CLionProjects/FaceDetectionGithub/stb/stb_image.h
-
 /Users/lemale/CLionProjects/FaceDetectionGithub/ImageMatrix.h
 string
 -
@@ -83,34 +77,4 @@ iostream
 -
 ImageMatrix.h
 /Users/lemale/CLionProjects/FaceDetectionGithub/ImageMatrix.h
-
-/Users/lemale/CLionProjects/FaceDetectionGithub/stb/stb_image.h
-stb_image.h
-/Users/lemale/CLionProjects/FaceDetectionGithub/stb/stb_image.h
-stdio.h
--
-stdarg.h
--
-stddef.h
--
-stdlib.h
--
-string.h
--
-limits.h
--
-math.h
--
-stdio.h
--
-assert.h
--
-stdint.h
--
-emmintrin.h
--
-intrin.h
--
-arm_neon.h
--
 
