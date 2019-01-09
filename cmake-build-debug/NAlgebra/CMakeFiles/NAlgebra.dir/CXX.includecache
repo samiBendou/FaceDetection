@@ -70,19 +70,19 @@ typedef.h
 
 ../NAlgebra/header/typedef.h
 
-D:/Users/Bendou/CLionProjects/FaceDetection/NAlgebra/source/NPMatrix.cpp
+/Users/lemale/CLionProjects/FaceDetectionGithub/NAlgebra/source/NPMatrix.cpp
 NPMatrix.h
 -
 
-D:/Users/Bendou/CLionProjects/FaceDetection/NAlgebra/source/NVector.cpp
+/Users/lemale/CLionProjects/FaceDetectionGithub/NAlgebra/source/NVector.cpp
 NVector.h
 -
 
-D:/Users/Bendou/CLionProjects/FaceDetection/NAlgebra/source/Pixel.cpp
+/Users/lemale/CLionProjects/FaceDetectionGithub/NAlgebra/source/Pixel.cpp
 Pixel.h
 -
 
-D:/Users/Bendou/CLionProjects/FaceDetection/NAlgebra/source/Vector3.cpp
+/Users/lemale/CLionProjects/FaceDetectionGithub/NAlgebra/source/Vector3.cpp
 Vector3.h
 -
 

@@ -46,14 +46,17 @@ Pixel::Format Pixel::format() const {
 
 void Pixel::setRed(int red) {
     _red = limitIfLimited(red);
+    _format = RGB;
 }
 
 void Pixel::setGreen(int green) {
     _green = limitIfLimited(green);
+    _format = RGB;
 }
 
 void Pixel::setBlue(int blue) {
     _blue = limitIfLimited(blue);
+    _format = RGB;
 }
 
 void Pixel::setGreyScale(int grey) {
@@ -76,6 +79,13 @@ void Pixel::setLimited(bool limited) {
 void Pixel::limit() {
     _limited = true;
     setPrivateRGB(_red, _green, _blue);
+}
+
+void Pixel::conformFormatTo(const Pixel &p) {
+    if (_format == GScale && p._format == GScale)
+        _format = GScale;
+    else if (_format == RGB)
+        _format = RGB;
 }
 
 Pixel operator+(const Pixel &p1, const Pixel &p2) {
@@ -220,13 +230,6 @@ bool Pixel::isEqual(int val) const {
     } else if (_format == Pixel::GScale) {
         return _red == val;
     } else return false;
-}
-
-void Pixel::conformFormatTo(const Pixel &p) {
-    if(_format == GScale && p._format == GScale)
-        _format = GScale;
-    else if(_format == RGB)
-        _format = RGB;
 }
 
 void Pixel::setPrivateRGB(int red, int green, int blue) {

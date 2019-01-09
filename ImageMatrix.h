@@ -29,20 +29,71 @@ public:
     using mat_pix_t::operator=;
 
 
-    explicit ImageMatrix(ul_t width = 0, ul_t length = 0, Pixel::Format format = Pixel::GScale, bool limited = false);
+    // CONSTRUCTOR
 
-    ImageMatrix(const NPMatrix &m, Pixel::Format format = Pixel::GScale, bool limited = false);
+    ImageMatrix(const ImageMatrix &img);
+
+    /**
+     *
+     * @brief Construct by copy a new image matrix with given matrix m
+     */
+    ImageMatrix(const NPMatrix &m, bool limited = false);
+
+    /**
+     *
+     * @brief Construct zero image with given width and height
+     */
+    explicit ImageMatrix(ul_t width = 0, ul_t height = 0, Pixel::Format format = Pixel::GScale, bool limited = false);
+
+    /**
+     * @brief Construct image by reading image at path (relative path)
+     */
+    explicit ImageMatrix(const std::string &path, Pixel::Format format = Pixel::GScale, bool limited = false);
 
     ~ImageMatrix();
 
-    explicit ImageMatrix(const std::string &path, Pixel::Format format = Pixel::GScale, bool limited = false);
+    // GETTERS
 
+    ul_t width() const;
+
+    ul_t height() const;
+
+
+    // FILE ACCESS
+    /**
+     * @brief   Uses std_image.h to read an image at path location. The ImageMatrix object is set to the ridden image
+     *          after function call.
+     * @param path string of relative path of the image
+     */
     void read(const std::string &path, Pixel::Format format = Pixel::GScale);
 
     void write(const std::string &path, Pixel::Format format = Pixel::GScale);
 
+    // MANIPULATORS
+
+    /**
+     * @brief Computes image integral calculation. For mor details : [ref wiki]
+     * @return integral image stored as an unlimited ImageMatrix
+     */
+
     ImageMatrix intgr() const;
 
+    ImageMatrix &gsToRgb();
+
+    ImageMatrix &rgbToGs();
+
+    ImageMatrix &conformFormatTo(const mat_pix_t &img);
+
+
+    /**
+     *
+     * @param x1/x2 x coordinate of left upper/right lower point of rectangle
+     * @param y1/y2 y coordinate of left upper/right lower point of rectangle
+     * @return  value in pixel of the sum of pixels values within the rectangle ABCD where :
+     *          - A : (x1, y1), -B : (x2, y1), -C : (x2, y2), -D : (x1, y2)
+     *          for example sumWithin(0, 0, 3, 3) will return the sum of the pixels comprised between
+     *          the point (0, 0) and (2, 2).
+     */
     Pixel sumWithin(ul_t x1, ul_t y1, ul_t x2, ul_t y2);
 
 private:

@@ -1,3 +1,1 @@
-D:\Users\Bendou\AppData\JetBrains\apps\CLion\ch-0\182.4505.18\bin\cmake\win\bin\cmake.exe -E remove -f CMakeFiles\FaceDetection.dir/objects.a
-D:\PROGRA~1\MINGW-~1\I686-8~1.0-P\mingw32\bin\ar.exe cr CMakeFiles\FaceDetection.dir/objects.a @CMakeFiles\FaceDetection.dir\objects1.rsp
-D:\PROGRA~1\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE -g   -Wl,--whole-archive CMakeFiles\FaceDetection.dir/objects.a -Wl,--no-whole-archive  -o FaceDetection.exe -Wl,--out-implib,libFaceDetection.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\FaceDetection.dir\linklibs.rsp
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -g -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/FaceDetection.dir/main.cpp.o CMakeFiles/FaceDetection.dir/ImageMatrix.cpp.o  -o FaceDetection NAlgebra/libNAlgebra.a 

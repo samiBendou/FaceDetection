@@ -177,7 +177,7 @@ void NVector<T>::swap(ul_t k1, ul_t k2) {
 // SHIFT
 
 template<typename T>
-void NVector<T>::shift(long iterations) {
+NVector<T> &NVector<T>::shift(long iterations) {
     auto sized_dim = _k2 - _k1 + 1;
     auto sized_iterations = (abs(iterations) % sized_dim);
     auto shift_index = (iterations >= 0 ? sized_iterations : sized_dim - sized_iterations);
@@ -185,6 +185,7 @@ void NVector<T>::shift(long iterations) {
     std::rotate(this->begin() + _k1, this->begin() + _k1 + shift_index, this->begin() + _k2 + 1);
 
     setDefaultBrowseIndices();
+    return *this;
 }
 
 
