@@ -17,7 +17,10 @@ include_directories(./)
 
 add_subdirectory(NAlgebra)
 
-SET(COVERAGE OFF CACHE BOOL "Coverage")
+
+option(CODE_COVERAGE "Enable coverage reporting" OFF)
+add_library(coverage_config INTERFACE)
+
 
 set(CMAKE_CXX_FLAGS "-std=c++11 -g -O0 -Wall -Werror -Wextra -Wpedantic -Wconversion -Wswitch-default -Wswitch-enum -Wunreachable-code -Wwrite-strings -Wcast-align -Wshadow -Wundef --coverage ${CMAKE_CXX_FLAGS}")
 set(CMAKE_CXX_OUTPUT_EXTENSION_REPLACE 1)
@@ -27,4 +30,4 @@ add_executable(ImageMatrixTest ImageMatrixTest.cpp)
 # GTest needs threading support
 find_package (Threads)
 target_link_libraries(ImageMatrixTest NAlgebra gtest ${CMAKE_THREAD_LIBS_INIT})
-target_link_libraries(ImageMatrixTest PRIVATE --coverage)
+target_link_libraries(ImageMatrixTest INTERFACE --coverage)
