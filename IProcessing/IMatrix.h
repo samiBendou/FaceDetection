@@ -1,10 +1,10 @@
 /**
- * @class          : ImageMatrix
+ * @class          : IMatrix
  * @date           : 26/10/2018
  * @author         : samiBendou
  * @brief          : Represents an image of type .jpeg or .png.
  *                   This class is an instanciation of template NPMatrix with type Pixel. (cf. Pixel class).
- *                   The ImageMatrix class provide method for image processing and is especially
+ *                   The IMatrix class provide method for image processing and is especially
  *                   designed to achieve calculation of Pseudo-Haar features using image integral representation.
  *
  *                   All allong the folowing code we will use theses notations :
@@ -22,7 +22,7 @@
 #include <NPMatrix.h>
 #include <stb_image.h>
 
-class ImageMatrix : public mat_pix_t {
+class IMatrix : public mat_pix_t {
 
 public:
 
@@ -31,37 +31,37 @@ public:
 
     // CONSTRUCTOR
 
-    ImageMatrix(const ImageMatrix &img);
+    IMatrix(const IMatrix &img);
 
     /**
      *
      * @brief Construct by copy a new image matrix with given matrix m
      */
-    ImageMatrix(const NPMatrix &m, bool limited = false);
+    IMatrix(const NPMatrix &m, bool limited = false);
 
     /**
      *
      * @brief Construct zero image with given width and height
      */
-    explicit ImageMatrix(ul_t width = 0, ul_t height = 0, Pixel::Format format = Pixel::GScale, bool limited = false);
+    explicit IMatrix(size_t width = 0, size_t height = 0, Pixel::Format format = Pixel::GScale, bool limited = false);
 
     /**
      * @brief Construct image by reading image at path (relative path)
      */
-    explicit ImageMatrix(const std::string &path, Pixel::Format format = Pixel::GScale, bool limited = false);
+    explicit IMatrix(const std::string &path, Pixel::Format format = Pixel::GScale, bool limited = false);
 
-    ~ImageMatrix();
+    ~IMatrix();
 
     // GETTERS
 
-    ul_t width() const;
+    size_t width() const;
 
-    ul_t height() const;
+    size_t height() const;
 
 
     // FILE ACCESS
     /**
-     * @brief   Uses std_image.h to read an image at path location. The ImageMatrix object is set to the ridden image
+     * @brief   Uses std_image.h to read an image at path location. The IMatrix object is set to the ridden image
      *          after function call.
      * @param path string of relative path of the image
      */
@@ -73,16 +73,16 @@ public:
 
     /**
      * @brief Computes image integral calculation. For mor details : [ref wiki]
-     * @return integral image stored as an unlimited ImageMatrix
+     * @return integral image stored as an unlimited IMatrix
      */
 
-    ImageMatrix intgr() const;
+    mat_pix_t & intgr() const;
 
-    ImageMatrix &gsToRgb();
+    IMatrix &gsToRgb();
 
-    ImageMatrix &rgbToGs();
+    IMatrix &rgbToGs();
 
-    ImageMatrix &conformFormatTo(const mat_pix_t &img);
+    IMatrix &conformFormatTo(const mat_pix_t &img);
 
 
     /**
@@ -94,14 +94,14 @@ public:
      *          for example sumWithin(0, 0, 3, 3) will return the sum of the pixels comprised between
      *          the point (0, 0) and (2, 2).
      */
-    Pixel sumWithin(ul_t x1, ul_t y1, ul_t x2, ul_t y2);
+    Pixel sumWithin(size_t x1, size_t y1, size_t x2, size_t y2);
 
 private:
 
-    Pixel::Format _format;
-    bool _limited;
+    Pixel::Format _format{};
+    bool _limited{};
 
-    mutable mat_pix_t *_intgr = nullptr;
+    mutable std::unique_ptr<mat_pix_t>_intgr{nullptr};
 };
 
 #endif //FACEDETECTION_IMAGEMATRIX_H

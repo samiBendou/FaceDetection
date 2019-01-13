@@ -11,23 +11,25 @@ set(CMAKE_CXX_STANDARD 11)
 
 cmake_policy(SET CMP0023 OLD) # Allow mixed target_link_library
 
-include_directories(NAlgebra/header)
+option(CODE_COVERAGE "Enable coverage reporting" OFF)
+
+include_directories(NAlgebra/header/)
 include_directories(stb/)
-include_directories(./)
+include_directories(IProcessing/)
 
 add_subdirectory(NAlgebra)
+add_subdirectory(IProcessing)
 
 
-option(CODE_COVERAGE "Enable coverage reporting" OFF)
+
 add_library(coverage_config INTERFACE)
 
-
-set(CMAKE_CXX_FLAGS "-std=c++11 -g -O0 -Wall -Werror -Wextra -Wpedantic -Wconversion -Wswitch-default -Wswitch-enum -Wunreachable-code -Wwrite-strings -Wcast-align -Wshadow -Wundef --coverage ${CMAKE_CXX_FLAGS}")
+set(CMAKE_CXX_FLAGS "-std=c++11 -g -O0 -Wall -Wextra -Wpedantic -Wswitch-enum -Wunreachable-code -Wwrite-strings -Wcast-align -Wshadow -Wundef --coverage ${CMAKE_CXX_FLAGS}")
 set(CMAKE_CXX_OUTPUT_EXTENSION_REPLACE 1)
 
-add_executable(ImageMatrixTest ImageMatrixTest.cpp)
+add_executable(ImageMatrixTest IMatrixTest.cpp)
 
 # GTest needs threading support
 find_package (Threads)
-target_link_libraries(ImageMatrixTest NAlgebra gtest ${CMAKE_THREAD_LIBS_INIT})
+target_link_libraries(ImageMatrixTest NAlgebra IProcessing gtest ${CMAKE_THREAD_LIBS_INIT})
 target_link_libraries(ImageMatrixTest INTERFACE --coverage)
