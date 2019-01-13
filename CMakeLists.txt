@@ -19,7 +19,7 @@ add_subdirectory(NAlgebra)
 
 SET(COVERAGE OFF CACHE BOOL "Coverage")
 
-set(CMAKE_CXX_FLAGS "-g -O0 -Wall -Werror -Wextra -Wpedantic -Wconversion -Wswitch-default -Wswitch-enum -Wunreachable-code -Wwrite-strings -Wcast-align -Wshadow -Wundef --coverage ${CMAKE_CXX_FLAGS}")
+set(CMAKE_CXX_FLAGS "-std=c++11 -g -O0 -Wall -Werror -Wextra -Wpedantic -Wconversion -Wswitch-default -Wswitch-enum -Wunreachable-code -Wwrite-strings -Wcast-align -Wshadow -Wundef --coverage ${CMAKE_CXX_FLAGS}")
 set(CMAKE_CXX_OUTPUT_EXTENSION_REPLACE 1)
 
 add_executable(ImageMatrixTest ImageMatrixTest.cpp)
