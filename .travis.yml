@@ -1,0 +1,61 @@
+env:
+  global:
+    os: linux
+    dist: trusty
+    sudo: true
+
+matrix:
+include:
+compiler:
+  - gcc
+  - clang
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+      - llvm-toolchain-trusty-5.0
+    packages:
+      - g++-8
+      - clang-5.0
+      - lcov
+      - ggcov
+      - doxygen
+
+before_install:
+  #Clone googletest to run unit tests and benchmarks
+  #- git clone --depth 1 https://github.com/google/googletest ./TestsMathToolKitCPP/lib/
+  - pip install --upgrade --user git+https://github.com/samiBendou/cpp-coveralls
+  - # Combine global build options with OS/compiler-dependent options
+  - export CMAKE_OPTIONS= ${ENV_CMAKE_OPTIONS}
+  - export CXX_FLAGS= ${ENV_CXX_FLAGS}
+
+install:
+  -   if [ "$CXX" = "clang++" ] && [ "$TRAVIS_OS_NAME" = "linux" ]; then export CXX="clang++-5.0" CC="clang-5.0"; fi
+  -   if [ "$CXX" = "g++" ] && [ "$TRAVIS_OS_NAME" = "linux" ]; then export CXX="g++-8" CC="gcc-8"; fi
+  - echo ${PATH}
+  - echo ${CXX}
+  - ${CXX} --version
+  - ${CXX} -v
+
+script:
+
+  - cmake ${CMAKE_OPTIONS} -DCMAKE_CXX_FLAGS=${CXX_FLAGS} -DCOVERAGE=1
+  - cmake --build .
+  - ./ImageMatrixTest
+  #- doxygen -u Doxyfile
+  #- doxygen Doxyfile
+
+after_success:
+  - sudo ln -sf /usr/bin/gcov-8 /usr/bin/gcov
+  - coveralls --root . --gcov-options '\-l' -E ".*CMakeFiles.*" -E ".*gtest.*" -E ".*google*" -e ./NAlgebra
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  local_dir: docs
+  github_token: $GH_REPO_TOKEN
+  on:
+    branch: master
+
+notifications:
+  email: false
