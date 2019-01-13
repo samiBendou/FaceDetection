@@ -27,7 +27,7 @@ addons:
 
 before_install:
   #Clone googletest to run unit tests and benchmarks
-  - wget -P ./stb https://github.com/nothings/stb/blob/master/stb_image.h
+  - wget -P ./stb https://raw.githubusercontent.com/nothings/stb/master/stb_image.h
   - pip install --upgrade --user git+https://github.com/samiBendou/cpp-coveralls
   - # Combine global build options with OS/compiler-dependent options
   - export CMAKE_OPTIONS= ${ENV_CMAKE_OPTIONS}

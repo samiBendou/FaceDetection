@@ -2,7 +2,7 @@
  * @class          : ImageMatrix
  * @date           : 26/10/2018
  * @author         : samiBendou
- * @description    : An ImageMatrix inherits from NPMatrix. It's an instanciation of NPMatrix with type Pixel.
+ * @brief          : An ImageMatrix inherits from NPMatrix. It's an instanciation of NPMatrix with type Pixel.
  *                   ImageMatrix objects represents an image of type .jpeg or .png with a given color scale
  *                   (cf. Pixel class). All allong the folowing code we will use theses notations :
  *                      - x,i/y,j : Row/Col. indice for an image
@@ -12,7 +12,7 @@
  *
  *                   The class uses package NAlgebra and STB image.
  *
- * @license        : Dahoux Sami 2018 - © Copyright All Rights Reserved.
+ * @copybrief      : Dahoux Sami 2018 - © Copyright All Rights Reserved.
  */
 
 #ifndef FACEDETECTION_IMAGEMATRIX_H
