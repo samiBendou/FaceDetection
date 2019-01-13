@@ -53,13 +53,5 @@ after_success:
   - sudo ln -sf /usr/bin/gcov-8 /usr/bin/gcov
   - coveralls --root . --gcov-options '\-l' -E ".*CMakeFiles.*" -E ".*gtest.*" -E ".*google*" -e ./NAlgebra
 
-deploy:
-  provider: pages
-  skip_cleanup: true
-  local_dir: docs
-  github_token: $GH_REPO_TOKEN
-  on:
-    branch: master
-
 notifications:
   email: false

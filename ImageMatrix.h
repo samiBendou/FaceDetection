@@ -2,15 +2,14 @@
  * @class          : ImageMatrix
  * @date           : 26/10/2018
  * @author         : samiBendou
- * @brief          : An ImageMatrix inherits from NPMatrix. It's an instanciation of NPMatrix with type Pixel.
- *                   ImageMatrix objects represents an image of type .jpeg or .png with a given color scale
- *                   (cf. Pixel class). All allong the folowing code we will use theses notations :
+ * @brief          : Represents an image of type .jpeg or .png.
+ *                   This class is an instanciation of template NPMatrix with type Pixel. (cf. Pixel class).
+ *                   The ImageMatrix class provide method for image processing and is especially
+ *                   designed to achieve calculation of Pseudo-Haar features using image integral representation.
+ *
+ *                   All allong the folowing code we will use theses notations :
  *                      - x,i/y,j : Row/Col. indice for an image
  *                      - index : Compound index
- *                   The ImageMatrix class provide method for image processing and is especially
- *                   designed to achieve calculation of Pseudo-Haar characteristics using image integral representation.
- *
- *                   The class uses package NAlgebra and STB image.
  *
  * @copybrief      : Dahoux Sami 2018 - © Copyright All Rights Reserved.
  */
