@@ -46,8 +46,8 @@ script:
   - cmake ${CMAKE_OPTIONS} -DCMAKE_CXX_FLAGS=${CXX_FLAGS} -DCOVERAGE=1
   - cmake --build .
   - ./ImageMatrixTest
-  - doxygen -u Doxyfile
-  - doxygen Doxyfile
+  #- doxygen -u Doxyfile
+  #- doxygen Doxyfile
 
 after_success:
   - sudo ln -sf /usr/bin/gcov-8 /usr/bin/gcov
