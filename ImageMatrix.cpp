@@ -6,7 +6,7 @@
 
 #include "ImageMatrix.h"
 
-#include "stb/stb_image.h"
+
 
 // CONSTRUCTOR
 

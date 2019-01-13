@@ -21,6 +21,7 @@
 
 #include <string>
 #include <NPMatrix.h>
+#include <stb_image.h>
 
 class ImageMatrix : public mat_pix_t {
 
