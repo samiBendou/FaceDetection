@@ -7,17 +7,19 @@ class IMatrixTest : public ::testing::Test {
 TEST_F(IMatrixTest, Read) {
 
     // IMatrix loaded from local images
-    IMatrix white("../img/test/blank_white.jpg", Pixel::RGB),
-            black("../img/test/blank_black.jpg", Pixel::GScale),
-            red("../img/test/blank_red.jpg", Pixel::RGB);
+    IMatrix white("../img/test/blank_white.png", Pixel::RGB),
+            black("../img/test/blank_black.png", Pixel::GScale),
+            red("../img/test/blank_red.png", Pixel::RGB);
 
     // Expected results
     IMatrix fill_0{mat_pix_t::zeros(white.width(), white.height())},
-            fill_1 = fill_0,
+            fill_255 = fill_0,
             fill_red = fill_0;
 
-    fill_1.fill(Pixel(255, 255, 255));
-    fill_red.fill(Pixel(254, 0, 0));
+    fill_255.fill(Pixel(255, 255, 255));
+    fill_red.fill(Pixel(255, 0, 0));
+
+
 
     ASSERT_EQ(white.width(), 10);
     ASSERT_EQ(white.height(), 10);
