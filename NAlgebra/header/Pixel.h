@@ -140,7 +140,7 @@ public:
     }
 
     inline friend bool operator>(const Pixel &p1, const Pixel &p2) {
-        return p1.grey() <= p2.grey();
+        return p1.grey() > p2.grey();
     }
 
     inline friend bool operator<(const Pixel &p1, const Pixel &p2) {
@@ -148,11 +148,11 @@ public:
     }
 
     inline friend bool operator>=(const Pixel &p1, const Pixel &p2) {
-        return p1.grey() > p2.grey();
+        return p1.grey() >= p2.grey();
     }
 
     inline friend bool operator<=(const Pixel &p1, const Pixel &p2) {
-        return p1.grey() >= p2.grey();
+        return p1.grey() <= p2.grey();
     }
 
     friend std::ostream &operator<<(std::ostream &os, const Pixel &p);

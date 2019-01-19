@@ -81,24 +81,16 @@ void IMatrix::write(const std::string &path, Pixel::Format format) {
 
 mat_pix_t & IMatrix::intgr() const {
 
-    mat_pix_t img(width(), height()), sum(width(), height());
-
-    // Initial values setup
-    for (size_t index = 1; index < height(); ++index) {
-        img(0, index) = img(0, index - 1) + (*this)(0, index - 1);
-        img(index, 0) = img(index - 1, 0) + (*this)(index - 1, 0);
-    }
-
-    sum.setCol(col(0), 0);
+    mat_pix_t img(width() + 1, height() + 1), sum(width() + 1, height() + 1);
 
     // Computing integral image using recurrence formula
-    for (size_t x = 1; x < width(); ++x) {
-        for (size_t y = 1; y < height(); ++y) {
-            sum(x, y) = sum(x, y - 1) + (*this)(x, y);
+    for (size_t x = 1; x <= width(); ++x) {
+        for (size_t y = 1; y <= height(); ++y) {
+            sum(x, y) = sum(x, y - 1) + (*this)(x - 1, y - 1);
             img(x, y) = img(x - 1, y) + sum(x, y);
         }
     }
-    _intgr.reset(new mat_pix_t(img));
+    _intgr.reset(new mat_pix_t(img(1, 1, width(), height())));
     return *_intgr;
 }
 
@@ -135,7 +127,7 @@ Pixel IMatrix::sumWithin(size_t x1, size_t y1, size_t x2, size_t y2) {
     if (_intgr == nullptr) {
         intgr();
     }
-
+    x2  += 1; y2 += 1;
     return (*_intgr)(x1, y1) + (*_intgr)(x2, y2) - (*_intgr)(x1, y2) - (*_intgr)(x2, y1);
 }
 
