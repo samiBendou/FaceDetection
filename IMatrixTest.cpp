@@ -24,8 +24,13 @@ TEST_F(IMatrixTest, Read) {
     ASSERT_EQ(white.width(), 10);
     ASSERT_EQ(white.height(), 10);
 
-    EXPECT_EQ(white, fill_1);
+    std::cout << white << std::endl << fill_255;
+
+    EXPECT_EQ(white, fill_255);
     EXPECT_EQ(black, fill_0);
+
+    std::cout << red << std::endl << fill_red;
+
     EXPECT_EQ(red, fill_red);
 }
 
@@ -39,6 +44,8 @@ TEST_F(IMatrixTest, Integral) {
             expect_intgr(x - 1, y - 1) = x * y;
         }
     }
+
+    std::cout << expect_intgr << std::endl << fill_1.intgr();
 
     ASSERT_EQ(expect_intgr, fill_1.intgr());
 }

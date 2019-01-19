@@ -31,45 +31,36 @@ IMatrix::IMatrix(size_t width, size_t height, Pixel::Format format, bool limited
     format == Pixel::GScale ? rgbToGs() : gsToRgb();
 }
 
-IMatrix::IMatrix(const NPMatrix &m, bool limited) : NPMatrix(m),
+IMatrix::IMatrix(const mat_pix_t &m, bool limited) : NPMatrix(m),
                                                             _format(m(0, 0).format()),
                                                             _limited(limited),
                                                             _intgr(nullptr) {
-    conformFormatTo(m);
+    copy(m);
 }
 
 IMatrix::~IMatrix() = default;
-
-// GETTERS
-
-size_t IMatrix::width() const {
-    return n();
-}
-
-size_t IMatrix::height() const {
-    return p();
-}
 
 // FILE ACCESS
 
 void IMatrix::read(const std::string &path, Pixel::Format format) {
     int x, y, n;
-    stbi_uc *result = stbi_load(path.c_str(), &x, &y, &n, format);
+    stbi_uc *result = stbi_load(path.c_str(), &x, &y, &n, format == Pixel::GScale ? 1 : 3);
 
     assert(result != nullptr);
 
     // Creates a matrix with the read image, x is the length and y the width, n is the number of channels
-    *this = mat_pix_t((size_t) x, (size_t) y);
+    mat_pix_t read_mat = mat_pix_t((size_t) x, (size_t) y);
     size_t base;
     for (size_t i = 0; i < x; ++i) {
         for (size_t j = 0; j < y * _format; j += _format) {
             base = (_format * y) * i + j;
             if (_format == Pixel::RGB)
-                (*this)(i, j / _format) = Pixel(result[base], result[base + 1], result[base + 2], _limited);
+                read_mat(i, j / _format) = Pixel(result[base], result[base + 1], result[base + 2], _limited);
             else
-                (*this)(i, j) = Pixel(result[base], _limited);
+                read_mat(i, j) = Pixel(result[base], _limited);
         }
     }
+    copy(read_mat);
 }
 
 
@@ -92,35 +83,6 @@ mat_pix_t & IMatrix::intgr() const {
     }
     _intgr.reset(new mat_pix_t(img(1, 1, width(), height())));
     return *_intgr;
-}
-
-IMatrix &IMatrix::gsToRgb() {
-    int grey;
-    for (size_t x = 0; x < width(); ++x) {
-        for (size_t y = 0; y < height(); ++y) {
-            grey = (*this)(x, y).grey();
-            (*this)(x, y).setRGB(grey, grey, grey);
-        }
-    }
-    return *this;
-}
-
-IMatrix &IMatrix::conformFormatTo(const mat_pix_t &img) {
-    for (size_t x = 0; x < width(); ++x) {
-        for (size_t y = 0; y < height(); ++y) {
-            (*this)(x, y) = img(0, 0);
-        }
-    }
-    return *this;
-}
-
-IMatrix &IMatrix::rgbToGs() {
-    for (size_t x = 0; x < width(); ++x) {
-        for (size_t y = 0; y < height(); ++y) {
-            (*this)(x, y).setGrey((*this)(x, y).grey());
-        }
-    }
-    return *this;
 }
 
 Pixel IMatrix::sumWithin(size_t x1, size_t y1, size_t x2, size_t y2) {

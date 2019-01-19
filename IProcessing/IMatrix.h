@@ -37,7 +37,7 @@ public:
      *
      * @brief Construct by copy a new image matrix with given matrix m
      */
-    IMatrix(const NPMatrix &m, bool limited = false);
+    IMatrix(const mat_pix_t &m, bool limited = false);
 
     /**
      *
@@ -54,9 +54,9 @@ public:
 
     // GETTERS
 
-    size_t width() const;
+    inline size_t width() const {return n();}
 
-    size_t height() const;
+    inline size_t height() const {return p();}
 
 
     // FILE ACCESS
@@ -78,12 +78,15 @@ public:
 
     mat_pix_t & intgr() const;
 
-    IMatrix &gsToRgb();
+    inline IMatrix &gsToRgb() {
+        forEach(0, [](Pixel &p1, Pixel none) { p1.setRGB(p1.grey(), p1.grey(), p1.grey()); });
+        return *this;
+    }
 
-    IMatrix &rgbToGs();
-
-    IMatrix &conformFormatTo(const mat_pix_t &img);
-
+    inline IMatrix &rgbToGs() {
+        forEach(0, [](Pixel &p1, Pixel none) { p1.setGrey(p1.grey()); });
+        return *this;
+    }
 
     /**
      *
