@@ -43,8 +43,8 @@ IMatrix::~IMatrix() = default;
 // FILE ACCESS
 
 void IMatrix::read(const std::string &path, Pixel::Format format) {
-    int x, y, n;
-    stbi_uc *result = stbi_load(path.c_str(), &x, &y, &n, format == Pixel::GScale ? 1 : 3);
+    int x, y, n, channels_format = format == Pixel::GScale ? 1 : 3;
+    stbi_uc *result = stbi_load(path.c_str(), &x, &y, &n, channels_format);
 
     assert(result != nullptr);
 
@@ -52,15 +52,16 @@ void IMatrix::read(const std::string &path, Pixel::Format format) {
     mat_pix_t read_mat = mat_pix_t((size_t) x, (size_t) y);
     size_t base;
     for (size_t i = 0; i < x; ++i) {
-        for (size_t j = 0; j < y * _format; j += _format) {
-            base = (_format * y) * i + j;
-            if (_format == Pixel::RGB)
-                read_mat(i, j / _format) = Pixel(result[base], result[base + 1], result[base + 2], _limited);
+        for (size_t j = 0; j < y * channels_format; j += channels_format) {
+            base = (channels_format * y) * i + j;
+            if (channels_format == 3)
+                read_mat(i, j / channels_format) = Pixel(result[base], result[base + 1], result[base + 2], _limited);
             else
                 read_mat(i, j) = Pixel(result[base], _limited);
         }
     }
     copy(read_mat);
+    delete[] result;
 }
 
 

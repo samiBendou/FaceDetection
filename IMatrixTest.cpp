@@ -45,8 +45,6 @@ TEST_F(IMatrixTest, Integral) {
         }
     }
 
-    std::cout << expect_intgr << std::endl << fill_1.intgr();
-
     ASSERT_EQ(expect_intgr, fill_1.intgr());
 }
 
