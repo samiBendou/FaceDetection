@@ -24,12 +24,8 @@ TEST_F(IMatrixTest, Read) {
     ASSERT_EQ(white.width(), 10);
     ASSERT_EQ(white.height(), 10);
 
-    std::cout << white << std::endl << fill_255;
-
     EXPECT_EQ(white, fill_255);
     EXPECT_EQ(black, fill_0);
-
-    std::cout << red << std::endl << fill_red;
 
     EXPECT_EQ(red, fill_red);
 }
