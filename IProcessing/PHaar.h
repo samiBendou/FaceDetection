@@ -19,11 +19,13 @@ public:
     };
 
     PHaar(
-            size_t x, size_t y,
-            size_t w = P_HAAR_FEATURE_DEFAULT_SIZE, size_t h = P_HAAR_FEATURE_DEFAULT_SIZE,
-            Type type = TwoRectW
-    )
-            : x(x), y(y), w(w), h(h), type(type) {}
+            size_t x,
+            size_t y,
+            size_t w = P_HAAR_FEATURE_DEFAULT_SIZE,
+            size_t h = P_HAAR_FEATURE_DEFAULT_SIZE,
+            Type type = TwoRectW) :
+
+            x(x), y(y), w(w), h(h), type(type) {}
 
     Pixel operator()(const IMatrix &img) const;
 
