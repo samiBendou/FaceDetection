@@ -27,9 +27,9 @@ add_library(coverage_config INTERFACE)
 set(CMAKE_CXX_FLAGS "-std=c++11 -g -O0 -Wall -Wextra -Wpedantic -Wswitch-enum -Wunreachable-code -Wwrite-strings -Wcast-align -Wshadow -Wundef --coverage ${CMAKE_CXX_FLAGS}")
 set(CMAKE_CXX_OUTPUT_EXTENSION_REPLACE 1)
 
-add_executable(IMatrixTest IMatrixTest.cpp)
+add_executable(IProcessingTest IMatrixTest.cpp PHaarTest.cpp)
 
 # GTest needs threading support
 find_package (Threads)
-target_link_libraries(IMatrixTest NAlgebra IProcessing gtest ${CMAKE_THREAD_LIBS_INIT})
-target_link_libraries(IMatrixTest INTERFACE --coverage)
+target_link_libraries(IProcessingTest NAlgebra IProcessing gtest ${CMAKE_THREAD_LIBS_INIT})
+target_link_libraries(IProcessingTest INTERFACE --coverage)

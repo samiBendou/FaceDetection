@@ -7,4 +7,4 @@ include_directories(.)
 include_directories(../NAlgebra)
 include_directories(../stb)
 
-add_library(IProcessing STATIC IMatrix.cpp IMatrix.h)
+add_library(IProcessing STATIC IMatrix.cpp IMatrix.h PHaar.cpp PHaar.h)
