@@ -48,5 +48,5 @@ TEST_F(IMatrixTest, SumWithin) {
     IMatrix fill_1{mat_pix_t::zeros(10)};
     fill_1.fill(1);
 
-    ASSERT_EQ(fill_1.sumWithin(0, 0, 1, 1), 4);
+    ASSERT_EQ(fill_1.sum(0, 0, 1, 1), 1);
 }

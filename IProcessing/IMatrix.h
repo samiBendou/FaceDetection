@@ -97,7 +97,7 @@ public:
      *          for example sumWithin(0, 0, 3, 3) will return the sum of the pixels comprised between
      *          the point (0, 0) and (2, 2).
      */
-    Pixel sumWithin(size_t x1, size_t y1, size_t x2, size_t y2);
+    Pixel sum(size_t x1, size_t y1, size_t x2, size_t y2) const;
 
 private:
 

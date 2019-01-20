@@ -86,11 +86,10 @@ mat_pix_t & IMatrix::intgr() const {
     return *_intgr;
 }
 
-Pixel IMatrix::sumWithin(size_t x1, size_t y1, size_t x2, size_t y2) {
+Pixel IMatrix::sum(size_t x1, size_t y1, size_t x2, size_t y2) const {
     if (_intgr == nullptr) {
         intgr();
     }
-    x2  += 1; y2 += 1;
     return (*_intgr)(x1, y1) + (*_intgr)(x2, y2) - (*_intgr)(x1, y2) - (*_intgr)(x2, y1);
 }
 
