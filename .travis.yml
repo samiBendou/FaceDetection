@@ -1,18 +1,8 @@
 dist: trusty
 language: cpp
 
-env:
-  global:
-    os: linux
-    dist: trusty
-    sudo: true
-    langage: cpp
-
-matrix:
-include:
 compiler:
   - gcc
-  - clang
 addons:
   apt:
     sources:
@@ -45,7 +35,7 @@ script:
 
   - cmake ${CMAKE_OPTIONS} -DCMAKE_CXX_FLAGS=${CXX_FLAGS} -DCOVERAGE=1
   - cmake --build .
-  - ./IMatrixTest
+  - ./IProcessingTest
   #- doxygen -u Doxyfile
   #- doxygen Doxyfile
 
