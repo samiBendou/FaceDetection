@@ -27,6 +27,10 @@ public:
 
             x(x), y(y), w(w), h(h), type(type) {}
 
+    inline PHaar& move(size_t hx, size_t hy) {x += hx; y += hy; return *this;}
+
+    inline PHaar& scale(size_t sw, size_t sy) {w *= sw; h *= sy; return *this;}
+
     Pixel operator()(const IMatrix &img) const;
 
     size_t x, y, w, h;
