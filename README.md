@@ -34,16 +34,16 @@ Detector detector{feature, label}; // initializes and trains the detector
 
 Note that you can also initialize a detector without training it and than train it using `detector.train(feature, label)`
 
-Once your detector is train, you can use it on a test image to classify it using `detector.classify(test_img)`.
+Once your detector is train, you can classify a single test image using `detector.classify(test_img)`.
 
 ### General concepts
 
-A Detector API class is provided allows you to easily train classifiers and use theses to detect faces.
+A Detector class allows you to easily train classifiers and use theses to detect faces.
 The output of the detector is a boolean which indicates either there is a face on the image or not.
 
-The framework introduces a class called IMatrix which represents an image as an NPMatrix object. This allows to consider
+The framework introduces a class called IMatrix which represents an image as a pixel matrix object. This allows to consider
 the image as a vector and to provide all classical operations on vectors and also to provide user-friendly representation
-for image processing. The IMatrix objects are just pixel matrices but each pixel must have the same type eg. RGB.
+for image processing. The IMatrix objects are just mat_pix_t objects but each pixel must have the same type eg. RGB.
 
 The framework is designed so you can easily implement new features, boosting algorithms, CNN... The class structure is
 the following :
