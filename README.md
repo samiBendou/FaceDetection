@@ -50,6 +50,9 @@ the following :
 
 ![Class Diagram](class_diagram.png)
 
+If you need more details about Viola and Jones method you can at a look at 
+the [original publication](http://wearables.cc.gatech.edu/paper_of_week/viola01rapid.pdf)
+
 ### Install
 
 - Clone the project.
