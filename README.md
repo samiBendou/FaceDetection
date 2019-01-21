@@ -19,7 +19,7 @@ and Jones method in C++ which provide real-time object detection machine learnin
 - **Lightweight** enough to be embedded on various microelectronic devices
 
 The framework is based on NAlgebra framework which you can find [here](https://github.com/samiBendou/MathToolKitCPP).
-It also uses `stbi_image.h` from stb library.
+It also uses `stbi_image.h` from stb library to read and write .png and .jpeg files.
 
 
 ### Gettng Started
