@@ -22,6 +22,22 @@ The framework is based on NAlgebra framework which you can find [here](https://g
 It also uses `stbi_image.h` from stb library to read and write .png and .jpeg files.
 
 
+
+
+### Install
+
+- Clone the project.
+ 
+- Download stb  `stbi_image.h` from [stb library](https://github.com/nothings/stb) and put it on the stb directory at
+root of the project.
+
+### Run Unit Tests
+
+- gtest is integrated to the project using cmake. To run unit test just do the install procedure described above and run
+`IProcessing` target to run all unit tests.
+
+## Documentation 
+
 ### Gettng Started
 
 To use this detector on face you'll have to train it first :
@@ -35,6 +51,7 @@ Detector detector{feature, label}; // initializes and trains the detector
 Note that you can also initialize a detector without training it and than train it using `detector.train(feature, label)`
 
 Once your detector is train, you can classify a single test image using `detector.classify(test_img)`.
+
 
 ### General concepts
 
@@ -53,21 +70,9 @@ the following :
 If you need more details about Viola and Jones method you can at a look at 
 the [original publication](http://wearables.cc.gatech.edu/paper_of_week/viola01rapid.pdf)
 
-### Install
-
-- Clone the project.
- 
-- Download stb  `stbi_image.h` from [stb library](https://github.com/nothings/stb) and put it on the stb directory at
-root of the project.
-
-### Run Unit Tests
-
-- gtest is integrated to the project using cmake. To run unit test just do the install procedure described above and run
-`IProcessing` target to run all unit tests.
-
 ### Additional information
 
-**Author :** Sami Dahoux [GitHub](https://github.com/samiBendou/)
+**Copyright :** &copy; 2019-2018 Sami Dahoux [(GitHub)](https://github.com/samiBendou/), All Rights Reserved
 
 **Last Update :** 21/01/2019
 
