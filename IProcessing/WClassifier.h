@@ -14,12 +14,18 @@
 
 class WClassifier {
 public:
-    WClassifier(const PHaar &f, double_t theta0 = W_CLASSIFIER_DEFAULT_THETA, bool pol0 = W_CLASSIFIER_DEFAULT_POL) :
-            f(f), _theta(theta0), _pol(pol0) {}
+    WClassifier(const PHaar &f_haar, double_t theta0 = W_CLASSIFIER_DEFAULT_THETA, bool pol0 = W_CLASSIFIER_DEFAULT_POL) :
+            f(f_haar), _theta(theta0), _pol(pol0) {}
 
-    inline bool operator()(const IMatrix& img) {return _pol ? f(img).grey() < _theta :  f(img).grey() > _theta;}
+    inline bool operator()(const IMatrix& img) {return _pol ? f(img) < _theta :  f(img) > _theta;}
 
-    bool train();
+    double_t train(const vec_t &w, const std::vector<IMatrix> &x, const std::vector<bool> &y);
+
+    double_t bary(const vec_t &w, const std::vector<IMatrix> &x, const std::vector<bool> &y) const;
+
+    double_t fnr(const std::vector<IMatrix> &x, const std::vector<bool> &y);
+
+    double_t fpr(const std::vector<IMatrix> &x, const std::vector<bool> &y);
 
     PHaar f;
 

@@ -8,7 +8,7 @@ include_directories(SYSTEM
 set(GOOGLETEST_SOURCES
         ${PROJECT_SOURCE_DIR}/${GOOGLETEST_ROOT}/src/gtest-all.cc
         ${PROJECT_SOURCE_DIR}/${GOOGLETEST_ROOT}/src/gtest_main.cc
-        )
+        stb/stb_image.h)
 
 foreach(_source ${GOOGLETEST_SOURCES})
     set_source_files_properties(${_source} PROPERTIES GENERATED 1)
