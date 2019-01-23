@@ -4,9 +4,7 @@
 class PHaarTest : public ::testing::Test {
 public:
     PHaar f{0, 0, 10, 10};
-};//
-// Created by bendou on 20/01/19.
-//
+};
 
 TEST_F(PHaarTest, FunctionOp) {
 

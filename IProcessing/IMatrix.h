@@ -26,10 +26,9 @@ class IMatrix : public mat_pix_t {
 
 public:
 
-    using mat_pix_t::operator=;
-
-
     // CONSTRUCTOR
+
+    IMatrix() : mat_pix_t(), _format(Pixel::GScale), _limited(false), _intgr(nullptr) {}
 
     IMatrix(const IMatrix &img);
 
@@ -43,14 +42,14 @@ public:
      *
      * @brief Construct zero image with given width and height
      */
-    explicit IMatrix(size_t width = 0, size_t height = 0, Pixel::Format format = Pixel::GScale, bool limited = false);
+    explicit IMatrix(size_t width, size_t height, Pixel::Format format = Pixel::GScale, bool limited = false);
 
     /**
      * @brief Construct image by reading image at path (relative path)
      */
     explicit IMatrix(const std::string &path, Pixel::Format format = Pixel::GScale, bool limited = false);
 
-    ~IMatrix();
+    ~IMatrix() {_intgr.reset(nullptr);}
 
     // GETTERS
 
@@ -99,7 +98,15 @@ public:
      */
     Pixel sum(size_t x1, size_t y1, size_t x2, size_t y2) const;
 
+    inline IMatrix &operator=(const IMatrix& img) {
+        mat_pix_t::operator=(img);
+        intgrCopy(img);
+        return *this;
+    }
+
 private:
+
+    void intgrCopy(const IMatrix& img);
 
     Pixel::Format _format{};
     bool _limited{};

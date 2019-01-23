@@ -4,7 +4,7 @@
 
 #include "PHaar.h"
 
-Pixel PHaar::operator()(const IMatrix &img) const {
+double_t PHaar::operator()(const IMatrix &img) const {
     Pixel f;
     switch (type) {
         case TwoRectW:
@@ -28,5 +28,5 @@ Pixel PHaar::operator()(const IMatrix &img) const {
             break;
     }
 
-    return f;
+    return f.grey();
 }

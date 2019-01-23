@@ -19,19 +19,19 @@ public:
     };
 
     PHaar(
-            size_t x,
-            size_t y,
-            size_t w = P_HAAR_FEATURE_DEFAULT_SIZE,
-            size_t h = P_HAAR_FEATURE_DEFAULT_SIZE,
-            Type type = TwoRectW) :
+            size_t x0,
+            size_t y0,
+            size_t w0 = P_HAAR_FEATURE_DEFAULT_SIZE,
+            size_t h0 = P_HAAR_FEATURE_DEFAULT_SIZE,
+            Type type0 = TwoRectW) :
 
-            x(x), y(y), w(w), h(h), type(type) {}
+            x(x0), y(y0), w(w0), h(h0), type(type0) {}
 
     inline PHaar& move(size_t hx, size_t hy) {x += hx; y += hy; return *this;}
 
     inline PHaar& scale(size_t sw, size_t sy) {w *= sw; h *= sy; return *this;}
 
-    Pixel operator()(const IMatrix &img) const;
+    double_t operator()(const IMatrix &img) const;
 
     size_t x, y, w, h;
     Type type;

@@ -38,8 +38,6 @@ IMatrix::IMatrix(const mat_pix_t &m, bool limited) : NPMatrix(m),
     copy(m);
 }
 
-IMatrix::~IMatrix() = default;
-
 // FILE ACCESS
 
 void IMatrix::read(const std::string &path, Pixel::Format format) {
@@ -91,6 +89,14 @@ Pixel IMatrix::sum(size_t x1, size_t y1, size_t x2, size_t y2) const {
         intgr();
     }
     return (*_intgr)(x1, y1) + (*_intgr)(x2, y2) - (*_intgr)(x1, y2) - (*_intgr)(x2, y1);
+}
+
+void IMatrix::intgrCopy(const IMatrix &img) {
+    if(img._intgr) {
+        *_intgr = mat_pix_t(*(img._intgr));
+    } else {
+        _intgr.reset(nullptr);
+    }
 }
 
 
