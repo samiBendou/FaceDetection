@@ -33,20 +33,20 @@ WClassifier::bary(const vec_t &w, const std::vector<IMatrix> &x, const std::vect
 
 double_t WClassifier::fnr(const std::vector<IMatrix> &x, const std::vector<bool> &y) {
     double_t fnr = 0.0;
-    size_t n = x.size();
-    for (int k = 0; k < n; ++k) {
+    size_t size = x.size();
+    for (int k = 0; k < size; ++k) {
         fnr += (!(*this)(x[k]) && y[k] ? 1.0 : 0.0);
     }
-    fnr /= n;
+    fnr /= size;
     return fnr;
 }
 
 double_t WClassifier::fpr(const std::vector<IMatrix> &x, const std::vector<bool> &y) {
     double_t fpr = 0.0;
-    size_t n = x.size();
-    for (int k = 0; k < n; ++k) {
+    size_t size = x.size();
+    for (int k = 0; k < size; ++k) {
         fpr += ((*this)(x[k]) && !y[k] ? 1.0 : 0.0);
     }
-    fpr /= n;
+    fpr /= size;
     return fpr;
 }

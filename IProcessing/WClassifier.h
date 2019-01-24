@@ -14,8 +14,8 @@
 
 class WClassifier {
 public:
-    WClassifier(const PHaar &f_haar, double_t theta0 = W_CLASSIFIER_DEFAULT_THETA, bool pol0 = W_CLASSIFIER_DEFAULT_POL) :
-            f(f_haar), _theta(theta0), _pol(pol0) {}
+    WClassifier(const PHaar &f0, double_t theta0 = W_CLASSIFIER_DEFAULT_THETA, bool pol0 = W_CLASSIFIER_DEFAULT_POL) :
+            f(f0), _theta(theta0), _pol(pol0) {}
 
     inline bool operator()(const IMatrix& img) {return _pol ? f(img) < _theta :  f(img) > _theta;}
 
