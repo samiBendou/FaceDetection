@@ -2,11 +2,6 @@ cmake_minimum_required(VERSION 3.9.2)
 project(FaceDetection)
 include(gtest.cmake)
 
-if (APPLE)
-    add_definitions(-DGTEST_USE_OWN_TR1_TUPLE)
-    add_definitions(-D__GLIBCXX__)
-endif (APPLE)
-
 set(CMAKE_CXX_STANDARD 11)
 
 cmake_policy(SET CMP0023 OLD) # Allow mixed target_link_library
